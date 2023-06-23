@@ -1,0 +1,83 @@
+﻿@model fim.Models.modelo
+
+@{
+    ViewBag.Title = "DetalheModelo";
+}
+
+<h2>DetalheModelo</h2>
+
+<div>
+    <h4>modelo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idmodelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idmodelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modelo1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modelo1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cilindrada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cilindrada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.potencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.potencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ano)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.combustivel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.combustivel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codmarca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codmarca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fotomodelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fotomodelo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "ListarModelos")
+</p>
+n 

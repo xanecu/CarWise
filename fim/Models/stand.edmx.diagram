@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="09de316e3cfc4eeeb94446f4d6d32247" Name="Diagram1" ZoomLevel="120">
+        <EntityTypeShape EntityType="standModel.C__MigrationHistory" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="standModel.AspNetRole" Width="1.5" PointX="7.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="standModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="standModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="standModel.AspNetUser" Width="1.5" PointX="10" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="standModel.carro" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="standModel.cliente" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="standModel.codigospostai" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="standModel.compra" Width="1.5" PointX="7.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="standModel.empregado" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="standModel.marca" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="standModel.pessoa" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="standModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="standModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="standModel.FK__compras__idcarro__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="standModel.FK__clientes__nif__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="standModel.FK__compras__cliid__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="standModel.FK__pessoas__codigop__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="standModel.FK__compras__numemp__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="standModel.FK__empregados__nif__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="standModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="standModel.modelo" Width="1.5" PointX="3" PointY="7.375" />
+        <AssociationConnector Association="standModel.FK__carros__idmodelo__5CD6CB2B" />
+        <AssociationConnector Association="standModel.FK__modelos__codmarc__4CA06362" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,131 @@
+﻿@using fim.Models;
+@using PagedList.Mvc
+@model PagedList.IPagedList<fim.Models.modelo>
+
+@{
+    ViewBag.Title = "ListarModelos";
+
+    string devolvemarca(int idmarca)
+    {
+        string ret = "";
+        using (standEntities bd = new standEntities())
+        {
+            marca esta = bd.marcas.Find(idmarca);
+            ret = (esta != null) ? esta.marca1 : "";
+        }
+        return ret;
+    }
+
+
+}
+
+<h2>ListarModelos</h2>
+<h3 style="color:red">@ViewBag.msg</h3>
+
+@using (Html.BeginForm("ListarModelos", "Home", FormMethod.Get))
+{
+    <div class="form-group">
+        @Html.Label("lblsearch","Search", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+          <input type="text" name="search" id="search" class="form-control" />
+            <br />
+            <input type="submit" class="btn btn-danger" value="Pesquisa" />
+            <br />
+        </div>
+    </div>
+}
+
+
+
+
+<p>
+    @Html.ActionLink("Create New", "CriarModelo")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("IdModelo", "ListarModelos", new { order = ViewBag.idmodelo, filtro=ViewBag.filtro })
+        </th>
+        <th>
+            @Html.ActionLink("Modelo", "ListarModelos", new { order = ViewBag.modelo, filtro = ViewBag.filtro })
+        </th>
+
+        <th>
+            Ano
+        </th>
+
+        <th>
+            CodMarca
+        </th>
+        <th>
+            Foto
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idmodelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modelo1)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ano)
+            </td>
+
+            <td>
+
+                <label>@(devolvemarca(item.codmarca ?? -1))</label>
+
+
+            </td>
+            <td>
+                @{
+                    string cam = (item.fotomodelo != null) ? item.fotomodelo : "~/fotosmodelos/nofoto.jpg";
+
+                }
+                <img src=@Url.Content(cam) style="height:40px;" alt="" />
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditModelo", new { id = item.idmodelo }) |
+                @Html.ActionLink("Details", "DetalheModelo", new { id = item.idmodelo }) |
+                @Html.ActionLink("Delete", null, null, new { id = item.idmodelo, name = "lnkdel" })
+            </td>
+        </tr>
+    }
+
+</table>
+@((Model.PageNumber > Model.PageCount) ? 1 : Model.PageNumber) de @Model.PageCount
+@Html.PagedListPager(Model, (page) => Url.Action("ListarModelos", new { page, order = ViewBag.order, filtro = ViewBag.filtro }));
+
+@section modelosdelete{
+    <script>
+       $(function () {
+           $("[name='lnkdel']").click((evt) => {
+               evt = evt ? evt : window.event;
+               evt.preventDefault();
+               if (!confirm("Quer apagar?")) return false;
+               $.ajax({
+                   url: '@Url.Action("DeleteModelo")',
+                   dataType: 'json',
+                   data: { id: evt.target.id },
+                   success: function (data) {
+                       console.log(JSON.stringify(data));
+                       if (data.msg =="Registo apagado com sucesso") $(evt.target).closest('tr').remove();
+                       $("h3").html(data.msg);
+
+                   },
+                   error: function () { alert("erro");}
+               });
+
+           });
+
+
+       });
+
+    </script>
+}

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<fim.Models.marca>
+
+@{
+    ViewBag.Title = "ListarMarcas";
+}
+
+<h2>ListarMarcas</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddMarca")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codmarca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.marca1)
+        </th>
+        <th>
+           Foto
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codmarca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marca1)
+        </td>
+        <td>
+            @{
+                if (item.logotipo != null)
+                {
+                    <img src="data:image;base64, @System.Convert.ToBase64String(item.logotipo)" alt="40" />
+                 
+
+                }
+                else
+                {
+                    <img width="40" src="~/fotos/nofoto.jpg" alt="nofoto" />
+
+                }
+
+            }
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "EditarMarca", new {  id=item.codmarca }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
